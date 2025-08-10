@@ -1,0 +1,1 @@
+export const Backend_URL="https://blog-app-valg.onrender.com"
