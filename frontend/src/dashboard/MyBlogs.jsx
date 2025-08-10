@@ -36,27 +36,27 @@ function MyBlogs() {
   };
   return (
     <div>
-      <div className="container mx-auto my-12 p-4">
+      <div className="container mx-auto my-12 p-4 ml-60">
         <div className="grid gap-6 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 md:ml-20">
           {myBlogs && myBlogs.length > 0 ? (
             myBlogs.map((element) => (
-              <div
-                className="bg-white shadow-lg rounded-lg overflow-hidden"
+              <Link to={`/blog/${element._id}`}
+                className="bg-white shadow-lg rounded-lg overflow-hidden w-50"
                 key={element._id}
               >
                 {element?.blogImage && (
                   <img
                     src={element?.blogImage.url}
                     alt="blogImg"
-                    className="w-full h-48 object-cover"
+                    className="w-50 h-55 object-cover"
                   />
                 )}
                 <div className="p-4">
                   <span className="text-sm text-gray-600">
-                    {element.category}
+                    {element?.category}
                   </span>
                   <h4 className="text-xl font-semibold my-2">
-                    {element.title}
+                    {element?.title}
                   </h4>
                   <div className="flex justify-between mt-4">
                     <Link
@@ -65,15 +65,16 @@ function MyBlogs() {
                     >
                       UPDATE
                     </Link>
-                    <button
+
+                    <Link to='/'
                       onClick={() => handleDelete(element._id)}
                       className="text-red-500 bg-white rounded-md shadow-lg px-3 py-1 border border-gray-400 hover:underline"
                     >
                       DELETE
-                    </button>
+                    </Link>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))
           ) : (
             <p className="text-center text-gray-500">

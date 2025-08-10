@@ -39,12 +39,12 @@ function Trending() {
                 <Link to={`/blog/${element._id}`}>
                   <div className="relative">
                     <img
-                      src={element.blogImage.url}
+                      src={element?.blogImage?.url}
                       alt="blog"
                       className="w-full h-56 object-cover rounded-t-lg"
                     />
                     <div className="absolute top-4 left-4 bg-blue-500 text-white px-3 py-1 rounded-full text-sm">
-                      {element.category}
+                      {element?.category}
                     </div>
                   </div>
                   <div className="p-4 bg-gray-50 rounded-b-lg h-36 flex flex-col justify-between">
@@ -52,16 +52,16 @@ function Trending() {
                       className="text-lg font-bold mb-2 overflow-hidden text-ellipsis"
                       style={{ whiteSpace: "nowrap" }}
                     >
-                      {element.title}
+                      {element?.title}
                     </h1>
                     <div className="flex items-center">
                       <img
-                        src={element.adminPhoto}
+                        src={element?.adminPhoto}
                         alt="author_avatar"
                         className="w-10 h-10 rounded-full"
                       />
                       <p className="ml-3 text-gray-400 text-sm">
-                        {element.adminName}
+                        {element?.adminName}
                       </p>
                     </div>
                   </div>

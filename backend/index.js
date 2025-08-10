@@ -4,8 +4,8 @@ import mongoose from "mongoose";
 import fileUpload from "express-fileupload";
 import { v2 as cloudinary } from "cloudinary";
 import cookieParser from "cookie-parser";
-import userRoute from "./routes/user.route.js";
-import blogRoute from "./routes/blog.route.js";
+import userRoute from "./routes/user_routes.js";
+import blogRoute from "./routes/blog_routes.js";
 
 import cors from "cors";
 const app = express();

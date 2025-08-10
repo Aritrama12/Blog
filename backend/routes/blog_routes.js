@@ -6,7 +6,7 @@ import {
   getMyBlogs,
   getSingleBlogs,
   updateBlog,
-} from "../controller/blog.controller.js";
+} from "../controller/blog_controller.js";
 import { isAdmin, isAuthenticated } from "../middleware/authUser.js";
 
 const router = express.Router();

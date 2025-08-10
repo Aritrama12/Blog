@@ -11,8 +11,8 @@ function UpdateBlog() {
   const [category, setCategory] = useState("");
   const [about, setAbout] = useState("");
 
-  const [blogImage, setBlogImage] = useState("");
-  const [blogImagePreview, setBlogImagePreview] = useState("");
+  const [blogImage, setBlogImage] = useState();
+  const [blogImagePreview, setBlogImagePreview] = useState();
 
   const changePhotoHandler = (e) => {
     console.log(e);
@@ -42,7 +42,7 @@ function UpdateBlog() {
         setTitle(data?.title);
         setCategory(data?.category);
         setAbout(data?.about);
-        setBlogImage(data?.blogImage.url);
+        setBlogImage(data?.blogImage?.url);
       } catch (error) {
         console.log(error);
         toast.error("Please fill the required fields");
@@ -57,7 +57,6 @@ function UpdateBlog() {
     formData.append("title", title);
     formData.append("category", category);
     formData.append("about", about);
-
     formData.append("blogImage", blogImage);
     try {
       const { data } = await axios.put(

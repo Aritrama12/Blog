@@ -18,6 +18,7 @@ function Register() {
   const [photo, setPhoto] = useState("");
   const [photoPreview, setPhotoPreview] = useState("");
 
+// image upload
   const changePhotoHandler = (e) => {
     console.log(e);
     const file = e.target.files[0];
@@ -29,6 +30,7 @@ function Register() {
     };
   };
 
+  //from data handle
   const handleRegister = async (e) => {
     e.preventDefault();
     const formData = new FormData();
@@ -132,7 +134,7 @@ function Register() {
               className="w-full p-2 mb-4 border rounded-md"
             >
               <option value="">Select Your Education</option>
-              <option value="BCA ">BCA</option>
+              <option value="B.Tech ">B.Tech</option>
               <option value="MCA ">MCA</option>
               <option value="MBA ">MBA</option>
               <option value="BBA ">BBA</option>

@@ -36,7 +36,7 @@ function Navbar() {
       <nav className=" shadow-lg px-4 py-2">
         <div className="flex items-center justify-between container mx-auto">
           <div className="font-semibold text-xl">
-            Cilli<span className="text-blue-500">Blog</span>
+            Amazing<span className="text-blue-500">Blog</span>
           </div>
           {/* Desktop */}
           <div className=" mx-6">
@@ -61,8 +61,8 @@ function Navbar() {
               {show ? <IoCloseSharp size={24} /> : <AiOutlineMenu size={24} />}
             </div>
           </div>
-          <div className="hidden md:flex space-x-2">
-            {isAuthenticated && profile?.user?.role === "admin" ? (
+          <div className="flex space-x-2">
+            {isAuthenticated && profile?.role === "admin" ? (
               <Link
                 to="/dashboard"
                 className="bg-blue-600 text-white font-semibold hover:bg-blue-800 duration-300 px-4 py-2 rounded"

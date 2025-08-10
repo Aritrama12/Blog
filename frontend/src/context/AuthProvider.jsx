@@ -33,6 +33,7 @@ export const AuthProvider = ({ children }) => {
       }
     };
 
+    
     const fetchBlogs = async () => {
       try {
         const { data } = await axios.get(

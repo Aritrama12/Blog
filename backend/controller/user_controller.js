@@ -1,8 +1,9 @@
 import { User } from "../models/user.model.js";
 import { v2 as cloudinary } from "cloudinary";
-import bcrypt from "bcryptjs";
+import bcryptjs from 'bcryptjs'
 import createTokenAndSaveCookies from "../jwt/AuthToken.js";
 
+//signup
 export const register = async (req, res) => {
   try {
     if (!req.files || Object.keys(req.files).length === 0) {
@@ -39,7 +40,7 @@ export const register = async (req, res) => {
     if (!cloudinaryResponse || cloudinaryResponse.error) {
       console.log(cloudinaryResponse.error);
     }
-    const hashedPassword = await bcrypt.hash(password, 10);
+    const hashedPassword = await bcryptjs.hash(password, 10);
     const newUser = new User({
       email,
       name,
@@ -55,7 +56,7 @@ export const register = async (req, res) => {
     await newUser.save();
     if (newUser) {
       let token = await createTokenAndSaveCookies(newUser._id, res);
-      console.log("Singup: ", token);
+      //console.log("Singup: ", token);
       res.status(201).json({
         message: "User registered successfully",
         user: {
@@ -76,6 +77,8 @@ export const register = async (req, res) => {
   }
 };
 
+
+//login
 export const login = async (req, res) => {
   const { email, password, role } = req.body;
   try {
@@ -83,12 +86,12 @@ export const login = async (req, res) => {
       return res.status(400).json({ message: "Please fill required fields" });
     }
     const user = await User.findOne({ email }).select("+password");
-    console.log(user);
+    //console.log(user);
     if (!user.password) {
       return res.status(400).json({ message: "User password is missing" });
     }
 
-    const isMatch = await bcrypt.compare(password, user.password);
+    const isMatch = await bcryptjs.compare(password, user.password);
     if (!user || !isMatch) {
       return res.status(400).json({ message: "Invalid email or password" });
     }
@@ -96,7 +99,7 @@ export const login = async (req, res) => {
       return res.status(400).json({ message: `Given role ${role} not found` });
     }
     let token = await createTokenAndSaveCookies(user._id, res);
-    console.log("Login: ", token);
+    //console.log("Login: ", token);
     res.status(200).json({
       message: "User logged in successfully",
       user: {
@@ -113,6 +116,7 @@ export const login = async (req, res) => {
   }
 };
 
+//logout
 export const logout = (req, res) => {
   try {
     res.clearCookie("jwt");
@@ -123,11 +127,13 @@ export const logout = (req, res) => {
   }
 };
 
+// get my-profile
 export const getMyProfile = async (req, res) => {
   const user = await req.user;
   res.status(200).json({ user });
 };
 
+//get- admins
 export const getAdmins = async (req, res) => {
   const admins = await User.find({ role: "admin" });
   res.status(200).json({ admins });
