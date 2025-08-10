@@ -1,1 +1,1 @@
-export const Backend_URL="https://blog-app-valg.onrender.com"
+export const BACKEND_URL="http://localhost:4001"
