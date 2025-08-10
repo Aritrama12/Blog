@@ -1,1 +1,0 @@
-export const BACKEND_URL="https://blogapplication-mtz0.onrender.com"
