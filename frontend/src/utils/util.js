@@ -1,1 +1,1 @@
-export const BACKEND_URL="http://localhost:4001/api"
+export const BACKEND_URL="https://blogapp-br6n.onrender.com"
