@@ -1,1 +1,1 @@
-Deployment_Link:-   https://blog-4rrrji77p-aritra-mannnas-projects.vercel.app
+Deployment_Link:-  https://blog-blond-xi-15.vercel.app/
