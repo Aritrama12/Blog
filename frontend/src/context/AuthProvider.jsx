@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { createContext, useContext, useEffect, useState } from "react";
+import { BACKEND_URL } from "../utils/util";
 
 export const AuthContext = createContext();
 
@@ -16,7 +17,7 @@ export const AuthProvider = ({ children }) => {
         console.log(token);
         if (token) {
           const { data } = await axios.get(
-            "http://localhost:4001/api/users/my-profile",
+            `${BACKEND_URL}/users/my-profile`,
             {
               withCredentials: true,
               headers: {
@@ -37,7 +38,7 @@ export const AuthProvider = ({ children }) => {
     const fetchBlogs = async () => {
       try {
         const { data } = await axios.get(
-          "http://localhost:4001/api/blogs/all-blogs",
+          `${BACKEND_URL}/blogs/all-blogs`,
           { withCredentials: true }
         );
         console.log(data);
