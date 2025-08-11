@@ -12,7 +12,7 @@ const app = express();
 dotenv.config();
 
 const port = process.env.PORT;
-const MONOGO_URL = process.env.MONOG_URI;
+const MONOGO_URL = process.env.MONGO_URI
 
 //middleware
 app.use(express.json());
@@ -49,13 +49,6 @@ cloudinary.config({
   api_key: process.env.CLOUD_API_KEY,
   api_secret: process.env.CLOUD_SECRET_KEY,
 });
-
-app.get('/',(req,res)=>{
-  res.send(json({
-    message:"Home"
-  }))
-})
-
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
