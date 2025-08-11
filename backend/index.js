@@ -50,6 +50,13 @@ cloudinary.config({
   api_secret: process.env.CLOUD_SECRET_KEY,
 });
 
+app.get('/',(req,res)=>{
+  res.send(json({
+    message:"Home"
+  }))
+})
+
+
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
