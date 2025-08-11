@@ -1,1 +1,1 @@
-export const BACKEND_URL="https://blogapp-br6n.onrender.com"
+export const BACKEND_URL="https://blogapp-br6n.onrender.com/api"
