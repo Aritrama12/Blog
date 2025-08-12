@@ -45,9 +45,9 @@ app.use("/api/users", userRoute);
 app.use("/api/blogs", blogRoute);
 // Cloudinary
 cloudinary.config({
-  cloud_name: process.env.CLOUD_NAME,
-  api_key: process.env.CLOUD_API_KEY,
-  api_secret: process.env.CLOUD_SECRET_KEY,
+  cloud_name: process.env.CLOUDE_NAME,
+  api_key: process.env.CLOUDE_API_KEY,
+  api_secret: process.env.CLOUDE_API_SECRET,
 });
 
 //home page
