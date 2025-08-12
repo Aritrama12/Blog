@@ -44,7 +44,7 @@ function Register() {
     formData.append("photo", photo);
     try {
       const { data } = await axios.post(
-        `${BACKEND_URL}/api/users/register`,
+        `${BACKEND_URL}/users/register`,
         formData,
         {
           withCredentials: true,
